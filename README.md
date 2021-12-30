@@ -3,7 +3,9 @@
 This is a tic tac toe game built using chakra ui.
 https://tic-tac-chakra.vercel.app/
 
-![Tic tac](https://github.com/konichar/tic-tac-toe-chakra/blob/main/tictac.png)
+![Tic toc chakra](https://github.com/konichar/tic-tac-toe-chakra/blob/main/tictakk.png?raw=true)
+
+
 
 ## Available Scripts
 
@@ -28,11 +30,17 @@ Chakra Grid
         </Grid>
 
 ```
-![Tic tac](https://github.com/konichar/tic-tac-toe-chakra/blob/main/tictackk.png)
 
+![Tic tac](https://github.com/konichar/tic-tac-toe-chakra/blob/main/tictac.png?raw=true)
+
+
+###### Technologies Used
+
+@chakra-ui/react
+@react-confetti
+@svg
 
 In the project directory, you can run:
-
 ### `yarn start`
 
 Runs the app in the development mode.\
