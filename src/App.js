@@ -1,14 +1,12 @@
-import './App.css';
-import { useState } from 'react';
 import {
-  Box,
-  ChakraProvider,
+  Box, Center, ChakraProvider,
   Grid,
-  GridItem,
-  Center,
-  Heading
+  GridItem, Heading,
 } from '@chakra-ui/react';
+import { useState } from 'react';
 import Confetti from 'react-confetti';
+import './App.css';
+import ShapeIcon from './icons';
 
 function calculateWinner(squares) {
   const lines = [
@@ -23,7 +21,6 @@ function calculateWinner(squares) {
   ];
   for (let i = 0; i < lines.length; i++) {
     const [a, b, c] = lines[i];
-    console.log(a, b, c, "ddd", squares[a], squares[b], squares[c])
 
     if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
       return squares[a];
@@ -32,36 +29,28 @@ function calculateWinner(squares) {
   return null;
 }
 const Square = ({ value, onTrigger }) => {
-
   return (
     <GridItem colSpan={1} rowSpan={1} key={value}>
       <Box
         display="flex"
         justifyContent="center"
         alignItems={"center"}
-        bg="white"
-        boxShadow="lg"
-        rounded="sm"
         onClick={() => onTrigger()}
-        _hover={{
-          backgroundColor: "white",
-          color: "teal.500",
-          transform: "scale(1.1)",
-        }}
-        w="8"
-        h="8"
-      >{value}</Box>
+      >
+        <ShapeIcon
+          icon={value}
+        />
+      </Box>
     </GridItem >
   )
 }
+
 
 function App() {
   const [squares, setSquares] = useState(Array(9).fill(" "))
   const [xIsNext, setXisNext] = useState(true)
   const [winner, setWinner] = useState(" ")
   const { innerWidth: width, innerHeight: height } = window;
-
-
 
   const controlFn = (i, index) => {
     const newSquare = squares.slice()
@@ -70,7 +59,6 @@ function App() {
     if (win === "X" || win === "O") {
       setWinner(win)
     } else {
-      console.log(`nahh ${win}`)
       setXisNext(!xIsNext)
     }
     if (winner === " ") {
@@ -80,7 +68,6 @@ function App() {
 
   return (
     <ChakraProvider>
-
       <Center
         display={"flex"}
         color="gray.400"
@@ -124,7 +111,6 @@ function App() {
         </Grid>
       </Center>
     </ChakraProvider >
-
   );
 }
 
