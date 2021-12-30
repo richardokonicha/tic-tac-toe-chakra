@@ -47,13 +47,16 @@ const Square = ({ value, onTrigger }) => {
 
 
 function App() {
-  const [squares, setSquares] = useState(Array(9).fill(" "))
+  const [squares, setSquares] = useState(Array(9).fill(null))
   const [xIsNext, setXisNext] = useState(true)
   const [winner, setWinner] = useState(" ")
   const { innerWidth: width, innerHeight: height } = window;
 
   const controlFn = (i, index) => {
     const newSquare = squares.slice()
+    if (newSquare[index] !== null) {
+      return
+    }
     newSquare[index] = xIsNext ? "X" : "O"
     const win = calculateWinner(newSquare)
     if (win === "X" || win === "O") {
